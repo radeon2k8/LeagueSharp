@@ -183,6 +183,7 @@ namespace Velkoz
             GameObject.OnCreate += Obj_SpellMissile_OnCreate;
             Spellbook.OnUpdateChargedSpell += Spellbook_OnUpdateChargedSpell;
             Game.PrintChat(ChampionName + " Loaded!");
+            Orbwalking.BeforeAttack += Orbwalking_BeforeAttack;
         }
 
         static void Orbwalking_BeforeAttack(LeagueSharp.Common.Orbwalking.BeforeAttackEventArgs args)
