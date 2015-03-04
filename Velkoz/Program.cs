@@ -185,6 +185,11 @@ namespace Velkoz
             Game.PrintChat(ChampionName + " Loaded!");
         }
 
+        static void Orbwalking_BeforeAttack(LeagueSharp.Common.Orbwalking.BeforeAttackEventArgs args)
+        {
+            if (((Obj_AI_Base)Orbwalker.GetTarget()).IsMinion) args.Process = false;
+        }
+        
         static void Interrupter2_OnInterruptableTarget(Obj_AI_Hero sender, Interrupter2.InterruptableTargetEventArgs args)
         {
             if (!Config.Item("InterruptSpells").GetValue<bool>()) return;
